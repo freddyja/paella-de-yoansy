@@ -133,6 +133,10 @@ button{font-family:inherit;cursor:pointer}
   display:flex;justify-content:center;gap:18px;
   flex-wrap:wrap;margin-top:22px;
 }
+.tagline-row{display:none;justify-content:center;gap:18px;flex-wrap:wrap;width:100%}
+.lang-en .tagline-row[data-lang="en"],
+.lang-es .tagline-row[data-lang="es"],
+.lang-pt .tagline-row[data-lang="pt"]{display:flex}
 .hero-tagline span{
   color:rgba(255,255,255,.7);font-size:14px;font-weight:700;
   display:flex;align-items:center;gap:5px;
@@ -572,9 +576,9 @@ small[data-lang]{display:none}
   <p class="hero-sub" data-lang="es">Paella Española Auténtica con alma Cubana — hecha a mano en Spring Hill, FL</p>
   <p class="hero-sub" data-lang="pt">Paella Espanhola Autêntica com alma Cubana — artesanal em Spring Hill, FL</p>
   <div class="hero-tagline">
-    <span data-lang="en">Real Saffron</span><span data-lang="en">Bomba Rice</span><span data-lang="en">Cuban Sazon</span><span data-lang="en">Home Delivery</span>
-    <span data-lang="es">Azafrán Real</span><span data-lang="es">Arroz Bomba</span><span data-lang="es">Sazón Cubano</span><span data-lang="es">Entrega a Dom.</span>
-    <span data-lang="pt">Açafrão Real</span><span data-lang="pt">Arroz Bomba</span><span data-lang="pt">Sazón Cubano</span><span data-lang="pt">Entrega em Casa</span>
+    <div class="tagline-row" data-lang="en"><span>Real Saffron</span><span>Bomba Rice</span><span>Cuban Sazon</span><span>Home Delivery</span></div>
+    <div class="tagline-row" data-lang="es"><span>Azafrán Real</span><span>Arroz Bomba</span><span>Sazón Cubano</span><span>Entrega a Dom.</span></div>
+    <div class="tagline-row" data-lang="pt"><span>Açafrão Real</span><span>Arroz Bomba</span><span>Sazón Cubano</span><span>Entrega em Casa</span></div>
   </div>
 </section>
 
@@ -834,7 +838,7 @@ small[data-lang]{display:none}
           <button class="spice-btn" onclick="selectSpice(this,'😌 Mild')">😌 <span data-lang="en">Mild</span><span data-lang="es">Suave</span><span data-lang="pt">Suave</span></button>
           <button class="spice-btn" onclick="selectSpice(this,'🌶️ Medium')">🌶️ <span data-lang="en">Medium</span><span data-lang="es">Medio</span><span data-lang="pt">Médio</span></button>
           <button class="spice-btn" onclick="selectSpice(this,'🔥 Hot')">🔥 <span data-lang="en">Hot</span><span data-lang="es">Picante</span><span data-lang="pt">Apimentado</span></button>
-          <button class="spice-btn" onclick="selectSpice(this,'💀 Extra Hot')">💀 <span data-lang="en">Extra Hot</span><span data-lang="es">Extra Picante</span><span data-lang="pt">Extra Apimentado</span></button>
+          <button class="spice-btn" onclick="selectSpice(this,'🔥🔥🔥 Extra Hot')">🔥🔥🔥 <span data-lang="en">Extra Hot</span><span data-lang="es">Extra Picante</span><span data-lang="pt">Extra Apimentado</span></button>
         </div>
       </div>
     </div>
