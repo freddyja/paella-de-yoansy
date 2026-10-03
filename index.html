@@ -1,13 +1,1173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=https://computingmadeeasy.org/paella-de-yoansy/">
-<link rel="canonical" href="https://computingmadeeasy.org/paella-de-yoansy/">
-<title>Moved</title>
-<script>location.replace("https://computingmadeeasy.org/paella-de-yoansy/");</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>La Paella de Yoansy – Order Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root{
+  --saffron:#F5A623;
+  --saffron-d:#D4871A;
+  --cuban-red:#C41E3A;
+  --cuban-red-d:#9E1830;
+  --teal:#00A896;
+  --teal-d:#007F72;
+  --cream:#FDF6EC;
+  --dark:#1C0A00;
+  --mid:#5C2D0A;
+  --muted:#8B6347;
+  --border:rgba(245,166,35,.28);
+  --wa:#25D366;
+  --wa-d:#128C7E;
+  --card-bg:#fff;
+  --radius:16px;
+  --shadow:0 6px 32px rgba(28,10,0,.10);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ═══════════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════════ */
+.topbar{
+  background:var(--dark);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  flex-wrap:wrap;
+  gap:8px;
+  position:sticky;top:0;z-index:200;
+}
+.lang-group{display:flex;gap:6px}
+.lang-btn{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.25);
+  color:rgba(255,255,255,.75);
+  padding:4px 12px;border-radius:20px;
+  font-size:13px;font-weight:700;
+  transition:all .18s;
+  display:flex;align-items:center;gap:5px;
+}
+.lang-btn.active,.lang-btn:hover{
+  background:var(--saffron);
+  border-color:var(--saffron);
+  color:var(--dark);
+}
+.topbar-contact{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.topbar-phone{
+  color:rgba(255,255,255,.7);font-size:13px;
+  display:flex;align-items:center;gap:5px;
+}
+.topbar-wa{
+  background:var(--wa);
+  color:#fff;
+  padding:5px 14px;border-radius:20px;
+  font-size:12px;font-weight:800;
+  display:flex;align-items:center;gap:5px;
+  letter-spacing:.3px;
+  transition:background .18s;
+}
+.topbar-wa:hover{background:var(--wa-d)}
+
+/* ═══════════════════════════════════════════
+   HERO / BRAND HEADER
+═══════════════════════════════════════════ */
+.hero{
+  background:
+    linear-gradient(175deg,rgba(28,10,0,.78) 0%,rgba(196,30,58,.60) 55%,rgba(28,10,0,.82) 100%),
+    url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=1600&q=80') center/cover no-repeat;
+  padding:56px 20px 64px;
+  text-align:center;
+  position:relative;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
+  height:60px;
+  background:linear-gradient(to bottom,transparent,var(--cream));
+}
+.hero-flag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.2);
+  padding:6px 18px;border-radius:30px;
+  color:rgba(255,255,255,.85);font-size:12px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.2rem,10vw,6.5rem);
+  color:#fff;
+  line-height:1;
+  letter-spacing:2px;
+  text-shadow:0 4px 30px rgba(0,0,0,.5);
+}
+.hero h1 span{color:var(--saffron)}
+.hero-sub{
+  color:rgba(255,255,255,.80);
+  font-size:clamp(.95rem,2.2vw,1.15rem);
+  margin:14px auto 0;
+  max-width:520px;line-height:1.65;
+}
+.hero-tagline{
+  display:flex;justify-content:center;gap:18px;
+  flex-wrap:wrap;margin-top:22px;
+}
+.tagline-row{display:none;justify-content:center;gap:18px;flex-wrap:wrap;width:100%}
+.lang-en .tagline-row[data-lang="en"],
+.lang-es .tagline-row[data-lang="es"],
+.lang-pt .tagline-row[data-lang="pt"]{display:flex}
+.hero-tagline span{
+  color:rgba(255,255,255,.7);font-size:14px;font-weight:700;
+  display:flex;align-items:center;gap:5px;
+}
+.hero-tagline span::before{content:'·';color:var(--saffron)}
+.hero-tagline span:first-child::before{display:none}
+
+/* ═══════════════════════════════════════════
+   PROMO BANNER
+═══════════════════════════════════════════ */
+.promo{
+  background:linear-gradient(90deg,var(--cuban-red),#E8234A,var(--cuban-red));
+  color:#fff;
+  text-align:center;
+  padding:14px 20px;
+  font-size:clamp(.9rem,2.5vw,1.05rem);
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.promo span{color:var(--saffron)}
+
+/* ═══════════════════════════════════════════
+   MAIN LAYOUT
+═══════════════════════════════════════════ */
+.main-wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:40px 20px 60px;
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:32px;
+  align-items:start;
+}
+@media(max-width:780px){
+  .main-wrap{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADING
+═══════════════════════════════════════════ */
+.sec-label{
+  font-size:11px;font-weight:900;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--cuban-red);margin-bottom:6px;
+}
+.sec-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  letter-spacing:1px;color:var(--dark);
+  margin-bottom:4px;
+}
+.sec-divider{
+  width:48px;height:4px;
+  background:var(--saffron);
+  border-radius:4px;margin:12px 0 24px;
+}
+
+/* ═══════════════════════════════════════════
+   STEP BLOCKS
+═══════════════════════════════════════════ */
+.builder{display:flex;flex-direction:column;gap:28px}
+.step-block{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.step-head{
+  background:var(--dark);
+  padding:14px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.step-num{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--saffron);color:var(--dark);
+  font-weight:900;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.step-head h3{
+  color:#fff;font-size:1.05rem;font-weight:800;
+}
+.step-head h3 small{
+  display:block;color:rgba(255,255,255,.5);
+  font-size:.75rem;font-weight:600;margin-top:1px;
+}
+.step-body{padding:20px}
+
+/* ═══════════════════════════════════════════
+   OPTION CARDS (size, protein, etc.)
+═══════════════════════════════════════════ */
+.options-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+  gap:12px;
+}
+.opt-card{
+  border:2px solid var(--border);
+  border-radius:12px;padding:14px 12px;
+  text-align:center;cursor:pointer;
+  transition:all .18s;
+  background:#fff;
+  position:relative;
+}
+.opt-card:hover{border-color:var(--saffron);background:#FFFBF2}
+.opt-card.selected{
+  border-color:var(--cuban-red);
+  background:linear-gradient(135deg,#FFF5F7,#FFF);
+  box-shadow:0 0 0 3px rgba(196,30,58,.12);
+}
+.opt-card.selected::after{
+  content:'✓';
+  position:absolute;top:8px;right:10px;
+  color:var(--cuban-red);font-weight:900;font-size:.85rem;
+}
+.opt-emoji{font-size:2rem;display:block;margin-bottom:8px}
+.opt-name{font-size:.88rem;font-weight:800;color:var(--dark);display:block;line-height:1.3}
+.opt-price{
+  font-size:.8rem;font-weight:700;color:var(--saffron-d);
+  margin-top:5px;display:block;
+}
+.opt-desc{font-size:.75rem;color:var(--muted);margin-top:3px;display:block;line-height:1.4}
+
+/* ═══════════════════════════════════════════
+   CHECKBOX OPTIONS (toppings etc.)
+═══════════════════════════════════════════ */
+.check-list{display:flex;flex-direction:column;gap:8px}
+.check-item{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 14px;
+  border:1.5px solid var(--border);
+  border-radius:10px;cursor:pointer;
+  transition:all .18s;
+  background:#fff;
+  user-select:none;
+}
+.check-item:hover{border-color:var(--saffron);background:#FFFBF2}
+.check-item.checked{
+  border-color:var(--teal);
+  background:linear-gradient(135deg,#F0FFFE,#fff);
+}
+.check-box{
+  width:22px;height:22px;border-radius:6px;
+  border:2px solid #ddd;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .18s;font-size:.8rem;
+}
+.check-item.checked .check-box{
+  background:var(--teal);border-color:var(--teal);color:#fff;
+}
+.check-label{flex:1}
+.check-label .clabel{font-size:.88rem;font-weight:700;color:var(--dark)}
+.check-label .cdesc{font-size:.75rem;color:var(--muted)}
+.check-price{font-size:.83rem;font-weight:800;color:var(--saffron-d);white-space:nowrap}
+.limit-note{
+  font-size:.78rem;color:var(--muted);
+  font-weight:600;margin-bottom:12px;
+  padding:6px 10px;background:#f8f4ee;
+  border-radius:8px;border-left:3px solid var(--saffron);
+}
+
+/* ═══════════════════════════════════════════
+   SPICE SELECTOR
+═══════════════════════════════════════════ */
+.spice-row{display:flex;gap:10px;flex-wrap:wrap}
+.spice-btn{
+  border:2px solid var(--border);
+  background:#fff;border-radius:30px;
+  padding:8px 18px;font-size:.85rem;font-weight:700;
+  cursor:pointer;transition:all .18s;
+  display:flex;align-items:center;gap:6px;
+}
+.spice-btn:hover{border-color:var(--saffron)}
+.spice-btn.active{
+  background:var(--cuban-red);
+  border-color:var(--cuban-red);color:#fff;
+}
+
+/* ═══════════════════════════════════════════
+   NOTE TEXTAREA
+═══════════════════════════════════════════ */
+.note-area{
+  width:100%;min-height:80px;
+  border:1.5px solid var(--border);
+  border-radius:10px;padding:12px;
+  font-family:'Nunito',sans-serif;
+  font-size:.88rem;color:var(--dark);
+  background:#fff;resize:vertical;
+  transition:border-color .18s;
+  outline:none;
+}
+.note-area:focus{border-color:var(--saffron)}
+
+/* ═══════════════════════════════════════════
+   CART SIDEBAR
+═══════════════════════════════════════════ */
+.cart-wrap{position:sticky;top:72px}
+.cart-box{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.cart-head{
+  background:linear-gradient(135deg,var(--dark),var(--mid));
+  padding:18px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.cart-head h3{
+  color:#fff;font-size:1.1rem;font-weight:800;
+  display:flex;align-items:center;gap:8px;
+}
+.cart-count{
+  background:var(--saffron);color:var(--dark);
+  border-radius:50%;width:24px;height:24px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:900;
+}
+.cart-clear{
+  background:transparent;border:1px solid rgba(255,255,255,.25);
+  color:rgba(255,255,255,.6);padding:4px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;cursor:pointer;
+  transition:all .18s;
+}
+.cart-clear:hover{background:rgba(255,255,255,.12);color:#fff}
+.cart-items{padding:16px 20px;min-height:80px}
+.cart-empty{
+  text-align:center;color:var(--muted);
+  font-size:.88rem;padding:24px 0;
+}
+.cart-item{
+  border-bottom:1px solid #f0e8de;
+  padding:12px 0;
+}
+.cart-item:last-child{border-bottom:none}
+.ci-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:4px;
+}
+.ci-name{font-size:.9rem;font-weight:800;color:var(--dark)}
+.ci-price{font-size:.9rem;font-weight:900;color:var(--cuban-red)}
+.ci-details{font-size:.77rem;color:var(--muted);line-height:1.5}
+.ci-remove{
+  background:transparent;border:none;
+  color:#ccc;font-size:1rem;cursor:pointer;
+  padding:0 4px;transition:color .15s;
+  margin-left:8px;
+}
+.ci-remove:hover{color:var(--cuban-red)}
+.cart-footer{
+  border-top:2px solid var(--border);
+  padding:16px 20px;
+}
+.cart-total{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:14px;
+}
+.cart-total span:first-child{font-weight:700;font-size:.95rem;color:var(--muted)}
+.cart-total strong{font-size:1.5rem;color:var(--dark);font-weight:900}
+.add-btn{
+  width:100%;padding:15px;border-radius:12px;
+  border:none;font-size:.95rem;font-weight:800;
+  cursor:pointer;transition:all .18s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-bottom:10px;
+  letter-spacing:.3px;
+}
+.add-btn-primary{
+  background:linear-gradient(135deg,var(--saffron),var(--saffron-d));
+  color:var(--dark);
+  box-shadow:0 4px 18px rgba(245,166,35,.4);
+}
+.add-btn-primary:hover{
+  box-shadow:0 6px 26px rgba(245,166,35,.6);
+  transform:translateY(-1px);
+}
+.add-btn-wa{
+  background:var(--wa);color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,.35);
+}
+.add-btn-wa:hover{
+  background:var(--wa-d);
+  box-shadow:0 6px 26px rgba(37,211,102,.55);
+  transform:translateY(-1px);
+}
+.cart-note{
+  text-align:center;font-size:.75rem;color:var(--muted);
+  margin-top:10px;line-height:1.5;
+}
+
+/* ═══════════════════════════════════════════
+   CUSTOMER INFO
+═══════════════════════════════════════════ */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.info-grid{grid-template-columns:1fr}}
+.info-field{display:flex;flex-direction:column;gap:5px}
+.info-field.full{grid-column:1/-1}
+.info-field label{font-size:.8rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.info-field input,.info-field select{
+  padding:10px 14px;
+  border:1.5px solid var(--border);
+  border-radius:10px;
+  font-family:'Nunito',sans-serif;
+  font-size:.9rem;
+  background:#fff;color:var(--dark);
+  outline:none;transition:border-color .18s;
+}
+.info-field input:focus,.info-field select:focus{border-color:var(--saffron)}
+
+/* ═══════════════════════════════════════════
+   ABOUT STRIP
+═══════════════════════════════════════════ */
+.about-strip{
+  background:linear-gradient(135deg,var(--dark),#3D1A00);
+  padding:50px 20px;text-align:center;color:#fff;
+}
+.about-strip h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  letter-spacing:2px;color:var(--saffron);margin-bottom:14px;
+}
+.about-strip p{
+  max-width:600px;margin:0 auto;
+  color:rgba(255,255,255,.75);line-height:1.75;font-size:.97rem;
+}
+.feats{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:24px;
+  margin-top:32px;
+}
+.feat{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(245,166,35,.2);
+  border-radius:14px;padding:20px 24px;
+  text-align:center;min-width:130px;
+}
+.feat .fi{font-size:1.8rem;display:block;margin-bottom:8px}
+.feat span{font-size:.82rem;font-weight:800;color:rgba(255,255,255,.8);letter-spacing:.5px}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{
+  background:var(--dark);
+  text-align:center;padding:32px 20px;
+  border-top:3px solid var(--saffron);
+}
+.footer-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;color:var(--saffron);
+  letter-spacing:2px;margin-bottom:10px;
+}
+footer p{color:rgba(255,255,255,.5);font-size:.82rem;line-height:1.8}
+footer a{color:var(--saffron);font-weight:700}
+
+/* ═══════════════════════════════════════════
+   FLOATING WA
+═══════════════════════════════════════════ */
+.fab{
+  position:fixed;bottom:24px;right:24px;z-index:500;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--wa);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 28px rgba(37,211,102,.5);
+  animation:pulse 2.5s infinite;
+  transition:transform .2s;
+}
+.fab:hover{transform:scale(1.12);animation:none}
+@keyframes pulse{
+  0%,100%{box-shadow:0 6px 28px rgba(37,211,102,.5)}
+  50%{box-shadow:0 6px 50px rgba(37,211,102,.85)}
+}
+
+/* ═══════════════════════════════════════════
+   LANG VISIBILITY
+═══════════════════════════════════════════ */
+[data-lang]{display:none}
+.lang-en [data-lang="en"],
+.lang-es [data-lang="es"],
+.lang-pt [data-lang="pt"]{display:unset}
+/* block-level overrides */
+p[data-lang],h1[data-lang],h2[data-lang],h3[data-lang],
+h4[data-lang],div[data-lang],span.blk[data-lang],
+small[data-lang]{display:none}
+.lang-en p[data-lang="en"],.lang-en h1[data-lang="en"],
+.lang-en h2[data-lang="en"],.lang-en h3[data-lang="en"],
+.lang-en h4[data-lang="en"],.lang-en div[data-lang="en"],
+.lang-en small[data-lang="en"]{display:block}
+.lang-es p[data-lang="es"],.lang-es h1[data-lang="es"],
+.lang-es h2[data-lang="es"],.lang-es h3[data-lang="es"],
+.lang-es h4[data-lang="es"],.lang-es div[data-lang="es"],
+.lang-es small[data-lang="es"]{display:block}
+.lang-pt p[data-lang="pt"],.lang-pt h1[data-lang="pt"],
+.lang-pt h2[data-lang="pt"],.lang-pt h3[data-lang="pt"],
+.lang-pt h4[data-lang="pt"],.lang-pt div[data-lang="pt"],
+.lang-pt small[data-lang="pt"]{display:block}
+
+/* toast */
+.toast{
+  position:fixed;bottom:96px;right:24px;z-index:600;
+  background:var(--dark);color:#fff;
+  padding:12px 20px;border-radius:12px;
+  font-size:.88rem;font-weight:700;
+  transform:translateY(80px);opacity:0;
+  transition:all .3s;pointer-events:none;
+  border-left:4px solid var(--saffron);
+}
+.toast.show{transform:translateY(0);opacity:1}
+</style>
 </head>
-<body>
-<p>This page has moved to <a href="https://computingmadeeasy.org/paella-de-yoansy/">https://computingmadeeasy.org/paella-de-yoansy/</a>.</p>
+<body class="lang-en">
+
+<!-- ═══ TOP BAR ═══ -->
+<div class="topbar">
+  <div class="lang-group">
+    <button class="lang-btn active" onclick="setLang('en',this)"><img src="https://flagcdn.com/20x15/us.png" width="20" height="15" alt="US flag" style="border-radius:2px;vertical-align:middle"> English</button>
+    <button class="lang-btn"        onclick="setLang('es',this)"><img src="https://flagcdn.com/20x15/es.png" width="20" height="15" alt="ES flag" style="border-radius:2px;vertical-align:middle"> Español</button>
+    <button class="lang-btn"        onclick="setLang('pt',this)"><img src="https://flagcdn.com/20x15/br.png" width="20" height="15" alt="BR flag" style="border-radius:2px;vertical-align:middle"> Português</button>
+  </div>
+  <div class="topbar-contact">
+    <div class="topbar-phone">📞 (786) 294-5765</div>
+    <a class="topbar-wa" href="https://wa.me/17862945765" target="_blank" rel="noopener">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.858L.057 23.993l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.032-1.384l-.36-.214-3.742.982.998-3.645-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-flag">🇪🇸 Español · 🇨🇺 Cubano</div>
+  <h1 data-lang="en">La Paella<br/><span>de Yoansy</span></h1>
+  <h1 data-lang="es">La Paella<br/><span>de Yoansy</span></h1>
+  <h1 data-lang="pt">La Paella<br/><span>de Yoansy</span></h1>
+  <p class="hero-sub" data-lang="en">Authentic Spanish Paella with a Cuban soul — handcrafted in Spring Hill, FL</p>
+  <p class="hero-sub" data-lang="es">Paella Española Auténtica con alma Cubana — hecha a mano en Spring Hill, FL</p>
+  <p class="hero-sub" data-lang="pt">Paella Espanhola Autêntica com alma Cubana — artesanal em Spring Hill, FL</p>
+  <div class="hero-tagline">
+    <div class="tagline-row" data-lang="en"><span>Real Saffron</span><span>Bomba Rice</span><span>Cuban Sazon</span><span>Home Delivery</span></div>
+    <div class="tagline-row" data-lang="es"><span>Azafrán Real</span><span>Arroz Bomba</span><span>Sazón Cubano</span><span>Entrega a Dom.</span></div>
+    <div class="tagline-row" data-lang="pt"><span>Açafrão Real</span><span>Arroz Bomba</span><span>Sazón Cubano</span><span>Entrega em Casa</span></div>
+  </div>
+</section>
+
+<!-- ═══ PROMO BANNER ═══ -->
+<div class="promo">
+  <span data-lang="en">🎉 Weekend Special: Order 3 Paellas — Get 1 FREE! <span>Valid Sat & Sun Only</span> 🎉</span>
+  <span data-lang="es">🎉 Especial de Fin de Semana: ¡Pide 3 Paellas y Lleva 1 GRATIS! <span>Válido Sáb y Dom</span> 🎉</span>
+  <span data-lang="pt">🎉 Especial de Fim de Semana: Peça 3 Paellas — Leve 1 GRÁTIS! <span>Válido Sáb e Dom</span> 🎉</span>
+</div>
+
+<!-- ═══ MAIN BUILD + CART ═══ -->
+<div class="main-wrap">
+
+  <!-- LEFT: BUILDER -->
+  <div class="builder">
+
+    <!-- STEP 1: SIZE -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h3>
+          <span data-lang="en">Choose Your Size</span>
+          <span data-lang="es">Elige el Tamaño</span>
+          <span data-lang="pt">Escolha o Tamanho</span>
+          <small data-lang="en">Pick one • Price per person</small>
+          <small data-lang="es">Elige uno • Precio por persona</small>
+          <small data-lang="pt">Escolha um • Preço por pessoa</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <div class="options-grid" id="size-opts">
+          <div class="opt-card" onclick="selectOpt('size',this,'Solo (1 person)',13.99)">
+            <span class="opt-emoji">🥘</span>
+            <span class="opt-name" data-lang="en">Solo</span>
+            <span class="opt-name" data-lang="es">Solo</span>
+            <span class="opt-name" data-lang="pt">Solo</span>
+            <span class="opt-price">$13.99</span>
+            <span class="opt-desc" data-lang="en">1 person · 1 serving</span>
+            <span class="opt-desc" data-lang="es">1 persona · 1 porción</span>
+            <span class="opt-desc" data-lang="pt">1 pessoa · 1 porção</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('size',this,'Duo (2 persons)',24.99)">
+            <span class="opt-emoji">🥘🥘</span>
+            <span class="opt-name" data-lang="en">Duo</span>
+            <span class="opt-name" data-lang="es">Dúo</span>
+            <span class="opt-name" data-lang="pt">Duplo</span>
+            <span class="opt-price">$24.99</span>
+            <span class="opt-desc" data-lang="en">2 persons · perfect for 2</span>
+            <span class="opt-desc" data-lang="es">2 personas · perfecto para 2</span>
+            <span class="opt-desc" data-lang="pt">2 pessoas · perfeito para 2</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('size',this,'Family (4-5 persons)',44.99)">
+            <span class="opt-emoji">👨‍👩‍👧‍👦</span>
+            <span class="opt-name" data-lang="en">Family</span>
+            <span class="opt-name" data-lang="es">Familia</span>
+            <span class="opt-name" data-lang="pt">Família</span>
+            <span class="opt-price">$44.99</span>
+            <span class="opt-desc" data-lang="en">4–5 persons</span>
+            <span class="opt-desc" data-lang="es">4–5 personas</span>
+            <span class="opt-desc" data-lang="pt">4–5 pessoas</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('size',this,'Party Pan (8-10 persons)',79.99)">
+            <span class="opt-emoji">🎉</span>
+            <span class="opt-name" data-lang="en">Party Pan</span>
+            <span class="opt-name" data-lang="es">Sartén Fiesta</span>
+            <span class="opt-name" data-lang="pt">Panelão Festa</span>
+            <span class="opt-price">$79.99</span>
+            <span class="opt-desc" data-lang="en">8–10 persons</span>
+            <span class="opt-desc" data-lang="es">8–10 personas</span>
+            <span class="opt-desc" data-lang="pt">8–10 pessoas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: PROTEIN -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h3>
+          <span data-lang="en">Choose Your Protein</span>
+          <span data-lang="es">Elige tu Proteína</span>
+          <span data-lang="pt">Escolha sua Proteína</span>
+          <small data-lang="en">Pick one base</small>
+          <small data-lang="es">Elige una base</small>
+          <small data-lang="pt">Escolha uma base</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <div class="options-grid" id="protein-opts">
+          <div class="opt-card" onclick="selectOpt('protein',this,'🦐 Seafood (Shrimp + Mussels)',0)">
+            <span class="opt-emoji">🦐</span>
+            <span class="opt-name" data-lang="en">Seafood</span>
+            <span class="opt-name" data-lang="es">Mariscos</span>
+            <span class="opt-name" data-lang="pt">Frutos do Mar</span>
+            <span class="opt-price" data-lang="en">Included</span>
+            <span class="opt-price" data-lang="es">Incluido</span>
+            <span class="opt-price" data-lang="pt">Incluído</span>
+            <span class="opt-desc" data-lang="en">Shrimp · Mussels · Clams</span>
+            <span class="opt-desc" data-lang="es">Camarón · Mejillones · Almejas</span>
+            <span class="opt-desc" data-lang="pt">Camarão · Mexilhões · Mariscos</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('protein',this,'🍗 Chicken & Chorizo',0)">
+            <span class="opt-emoji">🍗</span>
+            <span class="opt-name" data-lang="en">Chicken & Chorizo</span>
+            <span class="opt-name" data-lang="es">Pollo y Chorizo</span>
+            <span class="opt-name" data-lang="pt">Frango & Chorizo</span>
+            <span class="opt-price" data-lang="en">Included</span>
+            <span class="opt-price" data-lang="es">Incluido</span>
+            <span class="opt-price" data-lang="pt">Incluído</span>
+            <span class="opt-desc" data-lang="en">Chicken thighs + Spanish chorizo</span>
+            <span class="opt-desc" data-lang="es">Muslos de pollo + chorizo español</span>
+            <span class="opt-desc" data-lang="pt">Coxas de frango + chorizo espanhol</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('protein',this,'🥘 La Mixta (Surf & Turf)',3)">
+            <span class="opt-emoji">🥘</span>
+            <span class="opt-name" data-lang="en">La Mixta</span>
+            <span class="opt-name" data-lang="es">La Mixta</span>
+            <span class="opt-name" data-lang="pt">La Mista</span>
+            <span class="opt-price">+$3.00</span>
+            <span class="opt-desc" data-lang="en">Chicken + Shrimp + Chorizo</span>
+            <span class="opt-desc" data-lang="es">Pollo + Camarón + Chorizo</span>
+            <span class="opt-desc" data-lang="pt">Frango + Camarão + Chorizo</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('protein',this,'🌿 Garden (Vegan)',0)">
+            <span class="opt-emoji">🌿</span>
+            <span class="opt-name" data-lang="en">Garden (Vegan)</span>
+            <span class="opt-name" data-lang="es">Verduras (Vegana)</span>
+            <span class="opt-name" data-lang="pt">Jardim (Vegano)</span>
+            <span class="opt-price" data-lang="en">Included</span>
+            <span class="opt-price" data-lang="es">Incluido</span>
+            <span class="opt-price" data-lang="pt">Incluído</span>
+            <span class="opt-desc" data-lang="en">Artichoke · Chickpea · Peppers</span>
+            <span class="opt-desc" data-lang="es">Alcachofa · Garbanzo · Pimiento</span>
+            <span class="opt-desc" data-lang="pt">Alcachofra · Grão-de-bico · Pimentão</span>
+          </div>
+          <div class="opt-card" onclick="selectOpt('protein',this,'🦞 Lobster Premium',12)">
+            <span class="opt-emoji">🦞</span>
+            <span class="opt-name" data-lang="en">Lobster Premium</span>
+            <span class="opt-name" data-lang="es">Langosta Premium</span>
+            <span class="opt-name" data-lang="pt">Lagosta Premium</span>
+            <span class="opt-price">+$12.00</span>
+            <span class="opt-desc" data-lang="en">Lobster tails + Scallops</span>
+            <span class="opt-desc" data-lang="es">Cola de langosta + Vieiras</span>
+            <span class="opt-desc" data-lang="pt">Caldas de lagosta + Vieiras</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: CUBAN EXTRAS -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h3>
+          <span data-lang="en">Cuban Side Dishes</span>
+          <span data-lang="es">Acompañantes Cubanos</span>
+          <span data-lang="pt">Acompanhamentos Cubanos</span>
+          <small data-lang="en">Optional add-ons · Choose as many as you like</small>
+          <small data-lang="es">Opcionales · Elige los que quieras</small>
+          <small data-lang="pt">Opcionais · Escolha quantos quiser</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <div class="check-list" id="sides-list">
+          <div class="check-item" onclick="toggleCheck(this,'🍌 Sweet Plantains (Maduros)',3.50)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🍌 Sweet Plantains (Maduros)</span>
+              <span class="clabel" data-lang="es">🍌 Plátanos Maduros Fritos</span>
+              <span class="clabel" data-lang="pt">🍌 Bananes Plantain Sucrées</span>
+              <span class="cdesc" data-lang="en">Caramelized ripe plantains — Cuban classic</span>
+              <span class="cdesc" data-lang="es">Plátanos maduros caramelizados — clásico cubano</span>
+              <span class="cdesc" data-lang="pt">Bananes plantain caramélisées — classique cubain</span>
+            </div>
+            <span class="check-price">+$3.50</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'🫘 Black Beans & Rice (Moros)',3.50)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🫘 Black Beans & Rice (Moros)</span>
+              <span class="clabel" data-lang="es">🫘 Moros y Cristianos</span>
+              <span class="clabel" data-lang="pt">🫘 Feijão Preto & Arroz (Moros)</span>
+              <span class="cdesc" data-lang="en">Black beans slow-cooked with sofrito & cumin</span>
+              <span class="cdesc" data-lang="es">Frijoles negros a fuego lento con sofrito y comino</span>
+              <span class="cdesc" data-lang="pt">Feijão preto cozido com sofrito e cominho</span>
+            </div>
+            <span class="check-price">+$3.50</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'🥗 Cuban Avocado Salad',4.00)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🥗 Cuban Avocado Salad</span>
+              <span class="clabel" data-lang="es">🥗 Ensalada de Aguacate Cubana</span>
+              <span class="clabel" data-lang="pt">🥗 Salada de Abacate Cubana</span>
+              <span class="cdesc" data-lang="en">Avocado, red onion, citrus dressing</span>
+              <span class="cdesc" data-lang="es">Aguacate, cebolla morada, aderezo de cítricos</span>
+              <span class="cdesc" data-lang="pt">Abacate, cebola roxa, vinagrete cítrico</span>
+            </div>
+            <span class="check-price">+$4.00</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'🥖 Cuban Bread (Pan Cubano)',2.50)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🥖 Cuban Bread (Pan Cubano)</span>
+              <span class="clabel" data-lang="es">🥖 Pan Cubano</span>
+              <span class="clabel" data-lang="pt">🥖 Pão Cubano</span>
+              <span class="cdesc" data-lang="en">Crispy Cuban bread with garlic butter</span>
+              <span class="cdesc" data-lang="es">Pan cubano crujiente con mantequilla de ajo</span>
+              <span class="cdesc" data-lang="pt">Pão cubano crocante com manteiga de alho</span>
+            </div>
+            <span class="check-price">+$2.50</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'🍮 Flan de Coco (Dessert)',4.50)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🍮 Coconut Flan (Dessert)</span>
+              <span class="clabel" data-lang="es">🍮 Flan de Coco (Postre)</span>
+              <span class="clabel" data-lang="pt">🍮 Flan de Coco (Sobremesa)</span>
+              <span class="cdesc" data-lang="en">Homemade Cuban coconut flan</span>
+              <span class="cdesc" data-lang="es">Flan de coco cubano casero</span>
+              <span class="cdesc" data-lang="pt">Flan de coco cubano caseiro</span>
+            </div>
+            <span class="check-price">+$4.50</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'🥤 Cane Juice (Guarapo)',2.00)">
+            <div class="check-box"></div>
+            <div class="check-label">
+              <span class="clabel" data-lang="en">🥤 Cane Juice (Guarapo)</span>
+              <span class="clabel" data-lang="es">🥤 Guarapo de Caña</span>
+              <span class="clabel" data-lang="pt">🥤 Suco de Cana (Guarapo)</span>
+              <span class="cdesc" data-lang="en">Fresh Cuban sugarcane juice — refreshing!</span>
+              <span class="cdesc" data-lang="es">Jugo fresco de caña cubana — ¡refrescante!</span>
+              <span class="cdesc" data-lang="pt">Suco de cana cubano fresco — refrescante!</span>
+            </div>
+            <span class="check-price">+$2.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: SPICE -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h3>
+          <span data-lang="en">Spice Level</span>
+          <span data-lang="es">Nivel de Picante</span>
+          <span data-lang="pt">Nível de Picância</span>
+          <small data-lang="en">How much heat do you want?</small>
+          <small data-lang="es">¿Cuánto picante quieres?</small>
+          <small data-lang="pt">Quanta pimenta você quer?</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <div class="spice-row" id="spice-opts">
+          <button class="spice-btn" onclick="selectSpice(this,'😌 Mild')">😌 <span data-lang="en">Mild</span><span data-lang="es">Suave</span><span data-lang="pt">Suave</span></button>
+          <button class="spice-btn" onclick="selectSpice(this,'🌶️ Medium')">🌶️ <span data-lang="en">Medium</span><span data-lang="es">Medio</span><span data-lang="pt">Médio</span></button>
+          <button class="spice-btn" onclick="selectSpice(this,'🔥 Hot')">🔥 <span data-lang="en">Hot</span><span data-lang="es">Picante</span><span data-lang="pt">Apimentado</span></button>
+          <button class="spice-btn" onclick="selectSpice(this,'🔥🔥🔥 Extra Hot')">🔥🔥🔥 <span data-lang="en">Extra Hot</span><span data-lang="es">Extra Picante</span><span data-lang="pt">Extra Apimentado</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: CUSTOMER INFO -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h3>
+          <span data-lang="en">Your Info & Delivery</span>
+          <span data-lang="es">Tus Datos y Entrega</span>
+          <span data-lang="pt">Seus Dados & Entrega</span>
+          <small data-lang="en">So we know where to bring the paella!</small>
+          <small data-lang="es">¡Para saber dónde llevar la paella!</small>
+          <small data-lang="pt">Para sabermos onde entregar a paella!</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <div class="info-grid">
+          <div class="info-field">
+            <label data-lang="en">Your Name</label>
+            <label data-lang="es">Tu Nombre</label>
+            <label data-lang="pt">Seu Nome</label>
+            <input type="text" id="cust-name" placeholder="e.g. Maria García"/>
+          </div>
+          <div class="info-field">
+            <label data-lang="en">Phone Number</label>
+            <label data-lang="es">Teléfono</label>
+            <label data-lang="pt">Telefone</label>
+            <input type="tel" id="cust-phone" placeholder="(xxx) xxx-xxxx"/>
+          </div>
+          <div class="info-field full">
+            <label data-lang="en">Delivery Address</label>
+            <label data-lang="es">Dirección de Entrega</label>
+            <label data-lang="pt">Endereço de Entrega</label>
+            <input type="text" id="cust-addr" placeholder="Street, City, ZIP"/>
+          </div>
+          <div class="info-field">
+            <label data-lang="en">Date Needed</label>
+            <label data-lang="es">Fecha Requerida</label>
+            <label data-lang="pt">Data Desejada</label>
+            <input type="date" id="cust-date"/>
+          </div>
+          <div class="info-field">
+            <label data-lang="en">Preferred Time</label>
+            <label data-lang="es">Hora Preferida</label>
+            <label data-lang="pt">Horário Preferido</label>
+            <input type="time" id="cust-time"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6: NOTES -->
+    <div class="step-block">
+      <div class="step-head">
+        <div class="step-num">6</div>
+        <h3>
+          <span data-lang="en">Special Instructions</span>
+          <span data-lang="es">Instrucciones Especiales</span>
+          <span data-lang="pt">Instruções Especiais</span>
+          <small data-lang="en">Allergies, substitutions, event details...</small>
+          <small data-lang="es">Alergias, sustituciones, detalles del evento...</small>
+          <small data-lang="pt">Alergias, substituições, detalhes do evento...</small>
+        </h3>
+      </div>
+      <div class="step-body">
+        <textarea class="note-area" id="cust-note" placeholder="e.g. No shellfish allergy — extra crispy socarrat please! 🥘"></textarea>
+      </div>
+    </div>
+
+  </div><!-- /builder -->
+
+  <!-- RIGHT: CART -->
+  <div class="cart-wrap">
+    <div class="cart-box">
+      <div class="cart-head">
+        <h3>🛒 <span data-lang="en">Your Order</span><span data-lang="es">Tu Pedido</span><span data-lang="pt">Seu Pedido</span> <span class="cart-count" id="cart-count">0</span></h3>
+        <button class="cart-clear" onclick="clearCart()"><span data-lang="en">Clear</span><span data-lang="es">Limpiar</span><span data-lang="pt">Limpar</span></button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <div class="cart-empty" id="cart-empty">
+          <div style="font-size:2.4rem;margin-bottom:8px">🥘</div>
+          <p data-lang="en">Your cart is empty.<br/>Build your paella above!</p>
+          <p data-lang="es">Tu carrito está vacío.<br/>¡Construye tu paella arriba!</p>
+          <p data-lang="pt">Seu carrinho está vazio.<br/>Monte sua paella acima!</p>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span data-lang="en">Total</span><span data-lang="es">Total</span><span data-lang="pt">Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button class="add-btn add-btn-primary" onclick="addToCart()">
+          🥘 <span data-lang="en">+ Add Paella to Order</span><span data-lang="es">+ Agregar Paella al Pedido</span><span data-lang="pt">+ Adicionar Paella ao Pedido</span>
+        </button>
+        <button class="add-btn add-btn-wa" onclick="sendWhatsApp()">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.858L.057 23.993l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.032-1.384l-.36-.214-3.742.982.998-3.645-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          <span data-lang="en">SEND ORDER VIA WHATSAPP</span>
+          <span data-lang="es">ENVIAR PEDIDO POR WHATSAPP</span>
+          <span data-lang="pt">ENVIAR PEDIDO PELO WHATSAPP</span>
+        </button>
+        <p class="cart-note">
+          <span data-lang="en">📍 Spring Hill, FL 34609 · (786) 294-5765</span>
+          <span data-lang="es">📍 Spring Hill, FL 34609 · (786) 294-5765</span>
+          <span data-lang="pt">📍 Spring Hill, FL 34609 · (786) 294-5765</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- ═══ ABOUT STRIP ═══ -->
+<div class="about-strip">
+  <h2 data-lang="en">Spanish Soul. Cuban Heart.</h2>
+  <h2 data-lang="es">Alma Española. Corazón Cubano.</h2>
+  <h2 data-lang="pt">Alma Espanhola. Coração Cubano.</h2>
+  <p data-lang="en">Yoansy crafts every paella the old way — wide carbon-steel pans, authentic Bomba rice, real La Mancha saffron, and a Cuban touch of sofrito, sazón, and maduros that makes every bite feel like home, no matter where you're from.</p>
+  <p data-lang="es">Yoansy prepara cada paella a la antigua — amplias sartenes de acero al carbono, auténtico arroz Bomba, azafrán real de La Mancha, y un toque cubano de sofrito, sazón y maduros que hace que cada bocado se sienta como en casa, sin importar de dónde seas.</p>
+  <p data-lang="pt">Yoansy prepara cada paella do jeito tradicional — amplas panelas de aço carbono, autêntico arroz Bomba, açafrão real de La Mancha, e um toque cubano de sofrito, sazón e maduros que faz de cada garfada uma viagem ao lar, não importa de onde você seja.</p>
+  <div class="feats">
+    <div class="feat"><span class="fi">🌸</span><span data-lang="en">Real Saffron</span><span data-lang="es">Azafrán Real</span><span data-lang="pt">Açafrão Real</span></div>
+    <div class="feat"><span class="fi">🌾</span><span data-lang="en">Bomba Rice</span><span data-lang="es">Arroz Bomba</span><span data-lang="pt">Arroz Bomba</span></div>
+    <div class="feat"><span class="fi">🍌</span><span data-lang="en">Cuban Sides</span><span data-lang="es">Acomp. Cubanos</span><span data-lang="pt">Acomp. Cubanos</span></div>
+    <div class="feat"><span class="fi">🚚</span><span data-lang="en">Delivery</span><span data-lang="es">Entrega</span><span data-lang="pt">Entrega</span></div>
+    <div class="feat"><span class="fi">🎉</span><span data-lang="en">Events</span><span data-lang="es">Eventos</span><span data-lang="pt">Eventos</span></div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">🥘 LA PAELLA DE YOANSY</div>
+  <p data-lang="en">13214 Drysdale Street, Spring Hill, FL 34609<br/>📞 <a href="tel:+17862945765">(786) 294-5765</a> · <a href="https://wa.me/17862945765" target="_blank">WhatsApp</a></p>
+  <p data-lang="es">13214 Drysdale Street, Spring Hill, FL 34609<br/>📞 <a href="tel:+17862945765">(786) 294-5765</a> · <a href="https://wa.me/17862945765" target="_blank">WhatsApp</a></p>
+  <p data-lang="pt">13214 Drysdale Street, Spring Hill, FL 34609<br/>📞 <a href="tel:+17862945765">(786) 294-5765</a> · <a href="https://wa.me/17862945765" target="_blank">WhatsApp</a></p>
+  <p style="margin-top:12px;opacity:.4;font-size:.75rem" data-lang="en">© 2026 La Paella de Yoansy · Made with ❤️ in Spring Hill, FL</p>
+  <p style="margin-top:12px;opacity:.4;font-size:.75rem" data-lang="es">© 2026 La Paella de Yoansy · Hecho con ❤️ en Spring Hill, FL</p>
+  <p style="margin-top:12px;opacity:.4;font-size:.75rem" data-lang="pt">© 2026 La Paella de Yoansy · Feito com ❤️ em Spring Hill, FL</p>
+</footer>
+
+<!-- ═══ FAB ═══ -->
+<a class="fab" href="https://wa.me/17862945765?text=Hello!%20I'd%20like%20to%20order%20a%20Paella%20🥘" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.858L.057 23.993l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.032-1.384l-.36-.214-3.742.982.998-3.645-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ─── STATE ─────────────────────────── */
+const state = {
+  size:    {name:'',price:0},
+  protein: {name:'',price:0},
+  sides:   [],
+  spice:   '',
+  cart:    []
+};
+
+/* ─── LANG ──────────────────────────── */
+function setLang(lang,btn){
+  document.body.className='lang-'+lang;
+  document.documentElement.lang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ─── SINGLE SELECT ──────────────────── */
+function selectOpt(group,card,name,extraPrice){
+  const parent=card.closest('.options-grid, .step-body');
+  parent.querySelectorAll('.opt-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  state[group]={name,price:extraPrice};
+}
+
+/* ─── CHECKBOX ───────────────────────── */
+function toggleCheck(item,label,price){
+  item.classList.toggle('checked');
+  const box=item.querySelector('.check-box');
+  if(item.classList.contains('checked')){
+    box.textContent='✓';
+    state.sides.push({label,price});
+  } else {
+    box.textContent='';
+    state.sides=state.sides.filter(s=>s.label!==label);
+  }
+}
+
+/* ─── SPICE ──────────────────────────── */
+function selectSpice(btn,label){
+  document.querySelectorAll('.spice-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  state.spice=label;
+}
+
+/* ─── ADD TO CART ────────────────────── */
+function addToCart(){
+  if(!state.size.name){showToast('⚠️ Please choose a size first!');return}
+  if(!state.protein.name){showToast('⚠️ Please choose a protein!');return}
+
+  const basePrice=state.size.price+state.protein.price;
+  const sidesPrice=state.sides.reduce((a,s)=>a+s.price,0);
+  const total=basePrice+sidesPrice;
+
+  const item={
+    id:Date.now(),
+    size:state.size.name,
+    protein:state.protein.name,
+    sides:[...state.sides],
+    spice:state.spice||'😌 Mild',
+    total
+  };
+  state.cart.push(item);
+  renderCart();
+  showToast('🥘 Paella added to your order!');
+
+  /* reset selections */
+  document.querySelectorAll('.opt-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.check-item').forEach(c=>{
+    c.classList.remove('checked');
+    c.querySelector('.check-box').textContent='';
+  });
+  document.querySelectorAll('.spice-btn').forEach(b=>b.classList.remove('active'));
+  state.size={name:'',price:0};
+  state.protein={name:'',price:0};
+  state.sides=[];
+  state.spice='';
+}
+
+/* ─── RENDER CART ────────────────────── */
+function renderCart(){
+  const container=document.getElementById('cart-items');
+  const empty=document.getElementById('cart-empty');
+  const countEl=document.getElementById('cart-count');
+  const totalEl=document.getElementById('cart-total');
+
+  if(state.cart.length===0){
+    empty.style.display='block';
+    countEl.textContent='0';
+    totalEl.textContent='$0.00';
+    // remove all ci items
+    container.querySelectorAll('.cart-item').forEach(e=>e.remove());
+    return;
+  }
+  empty.style.display='none';
+  container.querySelectorAll('.cart-item').forEach(e=>e.remove());
+
+  let grandTotal=0;
+  state.cart.forEach(item=>{
+    grandTotal+=item.total;
+    const sidesText=item.sides.length?item.sides.map(s=>s.label).join(', '):'No sides';
+    const div=document.createElement('div');
+    div.className='cart-item';
+    div.innerHTML=`
+      <div class="ci-header">
+        <span class="ci-name">${item.size}</span>
+        <span style="display:flex;align-items:center;gap:4px">
+          <span class="ci-price">$${item.total.toFixed(2)}</span>
+          <button class="ci-remove" onclick="removeItem(${item.id})">✕</button>
+        </span>
+      </div>
+      <div class="ci-details">
+        ${item.protein}<br/>
+        ${sidesText}<br/>
+        Spice: ${item.spice}
+      </div>`;
+    container.appendChild(div);
+  });
+
+  countEl.textContent=state.cart.length;
+  totalEl.textContent='$'+grandTotal.toFixed(2);
+}
+
+function removeItem(id){
+  state.cart=state.cart.filter(i=>i.id!==id);
+  renderCart();
+}
+
+function clearCart(){
+  state.cart=[];
+  renderCart();
+}
+
+/* ─── WHATSAPP ───────────────────────── */
+function sendWhatsApp(){
+  if(state.cart.length===0){showToast('🥘 Add a paella to your order first!');return}
+  const name=document.getElementById('cust-name').value.trim();
+  const phone=document.getElementById('cust-phone').value.trim();
+  const addr=document.getElementById('cust-addr').value.trim();
+  const date=document.getElementById('cust-date').value;
+  const time=document.getElementById('cust-time').value;
+  const note=document.getElementById('cust-note').value.trim();
+
+  let msg='🥘 *NEW PAELLA ORDER — La Paella de Yoansy*\n';
+  msg+='═══════════════════════\n\n';
+
+  state.cart.forEach((item,i)=>{
+    msg+=`*Paella #${i+1}*\n`;
+    msg+=`📐 Size: ${item.size}\n`;
+    msg+=`🍗 Protein: ${item.protein}\n`;
+    if(item.sides.length) msg+=`🍌 Sides: ${item.sides.map(s=>s.label).join(', ')}\n`;
+    msg+=`🌶️ Spice: ${item.spice}\n`;
+    msg+=`💵 Subtotal: $${item.total.toFixed(2)}\n\n`;
+  });
+
+  const grand=state.cart.reduce((a,i)=>a+i.total,0);
+  msg+=`*TOTAL: $${grand.toFixed(2)}*\n`;
+  msg+='═══════════════════════\n\n';
+
+  if(name) msg+=`👤 Name: ${name}\n`;
+  if(phone) msg+=`📞 Phone: ${phone}\n`;
+  if(addr) msg+=`📍 Address: ${addr}\n`;
+  if(date) msg+=`📅 Date: ${date}\n`;
+  if(time) msg+=`🕐 Time: ${time}\n`;
+  if(note) msg+=`📝 Notes: ${note}\n`;
+
+  msg+='\n_Order placed via website_ 🥘';
+
+  const url='https://wa.me/17862945765?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+}
+
+/* ─── TOAST ──────────────────────────── */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+</script>
 </body>
 </html>
